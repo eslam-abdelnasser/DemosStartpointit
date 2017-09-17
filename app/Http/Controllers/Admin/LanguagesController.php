@@ -40,14 +40,16 @@ class LanguagesController extends Controller
     public function store(Request $request)
     {
         //
+
+//        dd($request);
         $this->validate($request,[
-            'language_name' => 'required|unique:languages,name|max:100',
-            'language_label' => 'required|unique:languages,label|max:20',
-            'status' => 'required'
+            'name' => 'required|unique:languages,name|max:100',
+            'label' => 'required|unique:languages,label|max:20',
+//            'status' => 'required'
         ]);
         $lanuguage = new Language();
-        $lanuguage->name = $request->language_name ;
-        $lanuguage->label = $request->language_label ;
+        $lanuguage->name = $request->name ;
+        $lanuguage->label = $request->label ;
         $lanuguage->status = $request->status ;
         $lanuguage->save();
         session()->flash('message' , 'new language added successfully');
@@ -74,6 +76,9 @@ class LanguagesController extends Controller
     public function edit($id)
     {
         //
+        $language = Language::find($id);
+
+        return view('admin.languages.edit')->withLanguage($language);
     }
 
     /**
@@ -86,6 +91,18 @@ class LanguagesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            'language_name' => 'required|max:100',
+            'language_label' => 'required|max:20',
+            'status' => 'required'
+        ]);
+        $lanuguage = Language::find($id);
+        $lanuguage->name = $request->language_name ;
+        $lanuguage->label = $request->language_label ;
+        $lanuguage->status = $request->status ;
+        $lanuguage->save();
+        session()->flash('message' , 'language has been updated successfully');
+        return redirect()->route('languages.index');
     }
 
     /**
@@ -97,5 +114,8 @@ class LanguagesController extends Controller
     public function destroy($id)
     {
         //
+        Language::destroy($id);
+        session()->flash('message' , 'language has been deleted successfully');
+        return redirect()->route('languages.index');
     }
 }

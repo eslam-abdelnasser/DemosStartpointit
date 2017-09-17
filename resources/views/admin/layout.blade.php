@@ -100,6 +100,8 @@
                         <span>@yield('page_title')</span>
                     </li>
                 </ul>
+
+
                 <div class="page-toolbar">
                     <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
                         <i class="icon-calendar"></i>&nbsp;
@@ -109,12 +111,14 @@
                 </div>
             </div>
             <!-- END PAGE BAR -->
+
             <!-- BEGIN PAGE TITLE-->
             <h1 class="page-title"> @yield('page_head')
                 <small>@yield('page_description')</small>
             </h1>
             <!-- END PAGE TITLE-->
             <!-- END PAGE HEADER-->
+            @include('admin.partials.messages')
             @yield('content')
 
         </div>

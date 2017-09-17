@@ -43,15 +43,15 @@
                     {!! Form::open(['route'=>['languages.store'],'method'=>'POST','class'=>'form-horizontal','role'=>'form']) !!}
                     <div class="form-body">
                         <div class="form-group">
-                            <label>اللفة</label>
-                            <input type="text" class="form-control" value="{{old('name')}}" placeholder="اللفة" name="name">
+                            <label>اللغة</label>
+                            <input type="text" class="form-control" value="{{old('name')}}" placeholder="اللغة" name="name">
                         </div>
 
                         <div class="form-group">
                             <label>علامة مميزة للغة</label>
                             <div class="input-group margin-top-10">
                                 <span class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
+                                        <i class="fa fa-language"></i>
                                   </span>
                                 <input type="text" class="form-control" placeholder="علامة مميزة لغة" value="{{old('label')}}" name="label">
                             </div>
