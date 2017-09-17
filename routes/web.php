@@ -33,7 +33,7 @@ Route::group([
 ], function () {
 
     Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
-    Route::resource('/admins','AdminController');
+    Route::resource('/admins','Admin\AdminController');
 
 });
 
