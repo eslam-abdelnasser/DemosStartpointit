@@ -15,7 +15,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="rtl">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 
@@ -27,14 +27,21 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="Startpoint It Admin panel" name="description" />
     <meta content="" name="author" />
     @if(LaravelLocalization::getCurrentLocale() == 'ar')
+        @php
+         $direction = '-rtl';
+        @endphp
+        @else
+        @php
+            $direction = '';
+        @endphp
 
     @endif
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap/css/bootstrap'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-switch/css/bootstrap-switch'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css" />
@@ -43,13 +50,13 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/jqvmap/jqvmap/jqvmap.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/css/components'.$direction.'.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/css/plugins'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/themes/darkblue-rtl.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/custom-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/layout'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/themes/darkblue'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/custom'.$direction.'.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
 
     @yield('css')
@@ -65,7 +72,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- BEGIN LOGO -->
             <div class="page-logo">
                 <a href="index.html">
-                    <img src="{{asset('admin-panel/assets/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
+                    <img src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
                 <div class="menu-toggler sidebar-toggler">
                     <span></span>
                 </div>
