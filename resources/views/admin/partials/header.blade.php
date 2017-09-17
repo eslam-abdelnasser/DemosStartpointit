@@ -15,7 +15,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en" dir="rtl">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}" dir="rtl">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 
@@ -26,27 +26,30 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Startpoint It Admin panel" name="description" />
     <meta content="" name="author" />
+    @if(LaravelLocalization::getCurrentLocale() == 'ar')
+
+    @endif
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-switch/css/bootstrap-switch-rtl.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link href="{{asset('admin-panel/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/plugins/jqvmap/jqvmap/jqvmap.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/morris/morris.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/fullcalendar/fullcalendar.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/jqvmap/jqvmap/jqvmap.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="{{asset('admin-panel/assets/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
-    <link href="{{asset('admin-panel/assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/css/components-rtl.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/css/plugins-rtl.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
     <!-- BEGIN THEME LAYOUT STYLES -->
-    <link href="{{asset('admin-panel/assets/layouts/layout/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin-panel/assets/layouts/layout/css/themes/darkblue-rtl.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
-    <link href="{{asset('admin-panel/assets/layouts/layout/css/custom-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/layout-rtl.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/themes/darkblue-rtl.min.css')}}" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/css/custom-rtl.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
 
     @yield('css')
