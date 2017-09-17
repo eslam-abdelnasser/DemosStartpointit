@@ -85,6 +85,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN TOP NAVIGATION MENU -->
             <div class="top-menu">
+
                 <ul class="nav navbar-nav pull-right">
                     <!-- BEGIN NOTIFICATION DROPDOWN -->
                     <!-- DOC: Apply "dropdown-dark" class after "dropdown-extended" to change the dropdown styte -->
@@ -95,6 +96,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             <i class="icon-bell"></i>
                             <span class="badge badge-default"> 7 </span>
                         </a>
+
+
                         <ul class="dropdown-menu">
                             <li class="external">
                                 <h3>
@@ -425,6 +428,20 @@ License: You must have a valid license purchased only from themeforest(the above
                     </li>
                     <!-- END QUICK SIDEBAR TOGGLER -->
                 </ul>
+
+                <div id="navbar" class="navbar-collapse collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img id="imgNavSel" src="" alt="..." class="img-thumbnail icon-small">  <span id="lanNavSel">ITA</span> <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a id="navIta" href="#" class="language"> <img id="imgNavIta" src="" alt="..." class="img-thumbnail icon-small">  <span id="lanNavIta">Italiano</span></a></li>
+                                <li><a id="navDeu" href="#" class="language"> <img id="imgNavDeu" src="" alt="..." class="img-thumbnail icon-small">  <span id="lanNavDeu">Deutsch</span></a></li>
+                                <li><a id="navFra" href="#" class="language"><img id="imgNavFra" src="" alt="..." class="img-thumbnail icon-small">  <span id="lanNavFra">Francais</span></a></li>
+                                <li><a id="navEng" href="#" class="language"><img id="imgNavEng" src="" alt="..." class="img-thumbnail icon-small">  <span id="lanNavEng">English</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> <!--/.navbar-collapse -->
             </div>
             <!-- END TOP NAVIGATION MENU -->
         </div>

@@ -101,6 +101,7 @@
 <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/layouts/global/scripts/quick-nav.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin-panel/custom-assets/js/localization.js')}}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 @yield('js')
 <script>
