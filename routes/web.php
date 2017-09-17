@@ -22,8 +22,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::middleware(['auth:admin'])->group(function(){
-    Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin-dashboard');
+//Route::middleware(['auth:admin'])->group(function(){
+//
+//
+//});
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale().'/dashboard',
+    'middleware' => ['localize','auth:admin'],
+], function () {
+
+    Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
+    Route::resource('/admins','AdminController');
 
 });
 

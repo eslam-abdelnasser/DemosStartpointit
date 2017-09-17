@@ -12,10 +12,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Notifications\AdminResetPasswordNotification;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 class Admin extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable , EntrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
