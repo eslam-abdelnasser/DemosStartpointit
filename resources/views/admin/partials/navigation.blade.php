@@ -71,19 +71,52 @@
                     </li>
                 </ul>
             </li>
+
+
+            {{--<li class="heading">--}}
+                {{--<h3 class="uppercase">Add languages</h3>--}}
+            {{--</li>--}}
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Languages</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('languages.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Show Languages</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('languages.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Add new language</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+            </li>
             <li class="heading">
                 <h3 class="uppercase">Admins</h3>
             </li>
 
-            <li class="nav-item start open">
+            <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Admin User</span>
                     <span class="selected"></span>
-                    <span class="arrow open"></span>
+                    <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="nav-item start open">
+                    <li class="nav-item start">
                         <a href="{{route('admins.index')}}" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">Admins</span>
@@ -91,18 +124,20 @@
                         </a>
                     </li>
 
-                    <li class="nav-item start open">
-                        <a href="{{route('admins.index')}}" class="nav-link ">
+                    <li class="nav-item start">
+                        <a href="{{route('roles.index')}}" class="nav-link ">
                             <i class="icon-bar-chart"></i>
                             <span class="title">Roles</span>
                             <span class="selected"></span>
                         </a>
                     </li>
 
-                   
+
 
                 </ul>
             </li>
+
+
 
         </ul>
         <!-- END SIDEBAR MENU -->

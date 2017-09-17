@@ -34,6 +34,8 @@ Route::group([
 
     Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
     Route::resource('/admins','Admin\AdminController');
+    Route::resource('/roles','Admin\RoleController');
+    Route::resource('/languages','Admin\LanguagesController');
 
 });
 

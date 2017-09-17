@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Admin ;
-class AdminController extends Controller
+use App\Models\Role ;
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class AdminController extends Controller
     public function index()
     {
         //
-        $admins = Admin::paginate(10);
-        return view('admin.admins.index')->with('admins',$admins);
+        $roles = Role::all();
 
+        return view('admin.roles.index');
     }
 
     /**
@@ -28,9 +28,7 @@ class AdminController extends Controller
     public function create()
     {
         //
-        return view('admin.admins.create');
-
-
+        return view('admin.roles.create');
     }
 
     /**
@@ -42,28 +40,6 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
-
-
-        $this->validate($request,array(
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'job_title' => 'required',
-            'phone' => 'required',
-//            'image_url' => 'required'
-        ));
-
-        $admin = new Admin;
-        $admin->name = $request->name;
-        $admin->email = $request->email;
-        $admin->password = bcrypt($request->password);
-        $admin->phone = $request->phone;
-        $admin->job_title = $request->job_title;
-        $admin->save();
-
-        return "done";
-
-
     }
 
     /**
