@@ -21,21 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/test/'.LaravelLocalization::setLocale() ,function (){
-
-    dd(LaravelLocalization::setLocale())   ;
-});
-
-//Route::prefix('admin/'.LaravelLocalization::setLocale())->middleware('localize','localeSessionRedirect', 'localizationRedirect', 'localeViewPath')->group(function () {
 
 
-//
-//    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-//    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.post');
 
-//    Route::get('/', 'Admin\DashboardController@index');
-
-//}) ;
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale().'/admin',
@@ -43,8 +31,6 @@ Route::group([
 //    'namespace' => 'Modules\Blog\Http\Controllers',
 ], function () {
     Route::get('/', 'Admin\DashboardController@index');
-//    dd(LaravelLocalization::setLocale())   ;
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.post');
-//    Route::get('posts', ['as' => 'blog.post.index', 'uses' => 'PublicController@index']);
 });
