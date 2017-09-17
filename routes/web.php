@@ -42,9 +42,10 @@ Route::group([
     'middleware' => ['localize','web'],
 //    'namespace' => 'Modules\Blog\Http\Controllers',
 ], function () {
-    Route::get('/', 'Admin\DashboardController@index');
+    Route::get('/', 'Admin\DashboardController@index')->name('admin-dashboard');
 //    dd(LaravelLocalization::setLocale())   ;
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.post');
+    Route::get('/logout','Auth\AdminLoginController@adminlogout')->name('admin.logout');
 //    Route::get('posts', ['as' => 'blog.post.index', 'uses' => 'PublicController@index']);
 });
