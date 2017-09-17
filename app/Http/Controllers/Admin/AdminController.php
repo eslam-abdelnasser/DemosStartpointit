@@ -61,8 +61,7 @@ class AdminController extends Controller
         $admin->job_title = $request->job_title;
         $admin->save();
 
-        return "done";
-
+        return redirect()->route('admins.index');
 
     }
 
@@ -86,7 +85,8 @@ class AdminController extends Controller
     public function edit($id)
     {
         //
-    }
+        $admin = Admin::find($id);
+        return view('admin.admins.edit')->with('admin',$admin);    }
 
     /**
      * Update the specified resource in storage.
@@ -98,6 +98,23 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,array(
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+//            'image_url' => 'required'
+        ));
+
+        $admin = Admin::find($id);
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        if($request->password != ""){
+            $admin->password = bcrypt($request->password);
+        }
+        $admin->phone = $request->phone;
+        $admin->job_title = $request->job_title;
+        $admin->save();
+
+        return redirect()->route('admins.index');
     }
 
     /**
@@ -109,5 +126,11 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
+
+        $admin = Admin::find($id);
+        $admin->delete();
+        return redirect()->route('admins.index');
+
+
     }
 }

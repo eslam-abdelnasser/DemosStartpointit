@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="portlet-body form">
-                    <form role="form">
+                    {{Form::open(['route' => ['admins.update',$admin->id] , 'method' => 'put']) }}
                         <div class="form-body">
                             <div class="form-group">
                                 <label>Name</label>
@@ -70,7 +70,7 @@
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-user"></i>
                                                         </span>
-                                    <input type="text" class="form-control input-circle-right" placeholder="Name"> </div>
+                                    <input type="text" name="name" id="name" class="form-control input-circle-right" placeholder="Name" value="{{$admin->name}}"> </div>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
@@ -78,7 +78,7 @@
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-envelope"></i>
                                                         </span>
-                                    <input type="text" class="form-control input-circle-right" placeholder="Email Address"> </div>
+                                    <input type="text" name="email" id="email" class="form-control input-circle-right" placeholder="Email Address" value="{{$admin->email}}"> </div>
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
@@ -86,7 +86,16 @@
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-lock"></i>
                                                         </span>
-                                    <input type="password" class="form-control input-circle-right" placeholder="Email Address"> </div>
+                                    <input type="password" name="password" id="password" class="form-control input-circle-right" placeholder="Password"> </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <div class="input-group">
+                                                            <span class="input-group-addon input-circle-left">
+                                                                <i class="fa fa-lock"></i>
+                                                            </span>
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-circle-right" placeholder="Confirm Password"> </div>
+
                             </div>
                             <div class="form-group">
                                 <label>Phone</label>
@@ -94,7 +103,7 @@
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-phone"></i>
                                                         </span>
-                                    <input type="password" class="form-control input-circle-right" placeholder="Email Address"> </div>
+                                    <input type="text" name="phone" id="phone" class="form-control input-circle-right" placeholder="Phone" value="{{$admin->phone}}"> </div>
                             </div>
                             <div class="form-group">
                                 <label>Job Title</label>
@@ -102,7 +111,7 @@
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-briefcase"></i>
                                                         </span>
-                                    <input type="password" class="form-control input-circle-right" placeholder="Email Address"> </div>
+                                    <input type="text" name="job_title" id="hob_title" class="form-control input-circle-right" placeholder="Job Title" value="{{$admin->job_title}}"> </div>
                             </div>
 
                             <label>Roles</label>
@@ -115,7 +124,7 @@
                     <button type="submit" class="btn blue">Submit</button>
                     <button type="button" class="btn default">Cancel</button>
                 </div>
-                </form>
+                {!! Form::close() !!}
             </div>
         </div>
 

@@ -105,8 +105,11 @@
                                     <td>
                                         <a href="{{route ('admins.edit',$admin->id)}}" class="btn btn-outline btn-circle btn-sm purple">
                                             <i class="fa fa-edit"></i> Edit </a>
-                                        <a href="{{route ('admins.destroy',$admin->id)}}" class="btn btn-outline btn-circle dark btn-sm black">
-                                            <i class="fa fa-trash-o"></i> Delete </a>
+
+                                        {!! Form::open(['route' => ['admins.destroy', $admin->id ], 'method' => 'DELETE']) !!}
+                                        <button class="btn btn-outline btn-circle dark btn-sm black">
+                                            <i class="fa fa-trash-o"></i> Delete </button>
+                                        {!! Form::close() !!}
                                     </td>
                                 </tr>
                             @endforeach
