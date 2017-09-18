@@ -23,24 +23,26 @@ class AdminController extends Controller
 
     }
 
-//    public function displayroles($admin_id){
-//        $roles = Role::all();
-//        return view('admin.admin.addrole')->with('roles',$roles)->with('admin_id',$admin_id);
-//
-//    }
-//
-//    public function addrole($admin_id,Request $request)
-//    {
-//        dd(' lesa msh 3arf azbot elcheck box di function addrole fi App/Admin/AdminController bs elcode mogod');
-//        $admin = Role::find($admin_id);
-//        $admin->permissions()->sync($request->roles , false);
-//    }
-//
-//    public function display_admin_role($admin_id)
-//    {
-//        $admin = Role::find($admin_id);
-//        return view('admin.admins.admin_roles')->with('admin',$admin);
-//    }
+
+    //display all roles so the admin can chose one or more
+    public function displayroles($admin_id){
+        $roles = Role::all();
+        return view('admin.admins.addrole')->with('roles',$roles)->with('admin_id',$admin_id);
+
+    }
+// assigne spacific roles for the admin
+    public function addrole($admin_id,Request $request)
+    {
+        dd(' lesa msh 3arf azbot elcheck box di function addrole fi App/Admin/AdminController bs elcode mogod');
+        $admin = Role::find($admin_id);
+        $admin->permissions()->sync($request->roles , false);
+    }
+//display all the admin roles with the option of delete
+    public function display_admin_role($admin_id)
+    {
+        $admin = Admin::find($admin_id);
+        return view('admin.admins.admin_roles')->with('admin',$admin);
+    }
 
 
     /**

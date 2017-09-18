@@ -25,31 +25,33 @@ class RoleController extends Controller
 
 
 
-
+    //display all permissions in check boxs to assign
     public function displaypermission($role_id){
 
         $permissions = Permission::all();
         return view('admin.roles.addpermission')->with('permissions',$permissions)->with('role_id',$role_id);
     }
 
+//display all the role permissions with the option of delete
     public function display_role_permission($role_id){
 
         $role = Role::find($role_id);
         return view('admin.roles.role_permissions')->with('role',$role);
     }
-
+// assigne permissions to roles
     public function addpermission($role_id,Request $request){
         dd(' lesa msh 3arf azbot elcheck box di function addpermission fi App/Admin/RoleController bs elcode mogod');
         $role = Role::find($role_id);
         $role->permissions()->sync($request->permissions , false);
     }
 
-//    public function delete_relation($admin_id,$role_id)
-//    {
-//        $admin = Role::find($admin_id);
-//        $admin->permissions()->detach($role_id);
-//        return redirect()->back();
-//    }
+    //delete spacific role from the admin roles
+    public function delete_relation($admin_id,$role_id)
+    {
+        $admin = Admin::find($admin_id);
+        $admin->roles()->detach($role_id);
+        return redirect()->back();
+    }
 
 
     /**

@@ -105,8 +105,8 @@
                                     </td>
 
                                     <td class="text-center">
-                                        {{--<a href="{{route('admin.role',$admin->id)}}" title="Add new Role" class=><i class="fa fa-plus"></i></a>--}}
-                                        {{--<a href="{{route('admin.view.role',$admin->id)}}" title="View Roles" class=><i class="fa fa-list"></i></a>--}}
+                                        <a href="{{route('admin.role',$admin->id)}}" title="Add new Role" class=><i class="fa fa-plus"></i></a>
+                                        <a href="{{route('admin.view.role',$admin->id)}}" title="View Roles" class=><i class="fa fa-list"></i></a>
                                     </td>
 
                                     <td>
