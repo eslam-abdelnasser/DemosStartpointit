@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin ;
+use Psy\Test\Exception\RuntimeExceptionTest;
+
 class AdminController extends Controller
 {
     /**
@@ -19,6 +22,26 @@ class AdminController extends Controller
         return view('admin.admins.index')->with('admins',$admins);
 
     }
+
+//    public function displayroles($admin_id){
+//        $roles = Role::all();
+//        return view('admin.admin.addrole')->with('roles',$roles)->with('admin_id',$admin_id);
+//
+//    }
+//
+//    public function addrole($admin_id,Request $request)
+//    {
+//        dd(' lesa msh 3arf azbot elcheck box di function addrole fi App/Admin/AdminController bs elcode mogod');
+//        $admin = Role::find($admin_id);
+//        $admin->permissions()->sync($request->roles , false);
+//    }
+//
+//    public function display_admin_role($admin_id)
+//    {
+//        $admin = Role::find($admin_id);
+//        return view('admin.admins.admin_roles')->with('admin',$admin);
+//    }
+
 
     /**
      * Show the form for creating a new resource.

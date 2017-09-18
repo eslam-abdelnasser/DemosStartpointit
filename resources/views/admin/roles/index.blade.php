@@ -71,8 +71,8 @@
 
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" title="Add permissions" class=><i class="fa fa-plus"></i></a>
-                                        <a href="#" title="View permissions" class=><i class="fa fa-list"></i></a>
+                                        <a href="{{route('role.permission',$role->id)}}" title="Add permissions" class=><i class="fa fa-plus"></i></a>
+                                        <a href="{{route('role.view.permission',$role->id)}}" title="View permissions" class=><i class="fa fa-list"></i></a>
                                     </td>
 
                                     <td>
@@ -137,7 +137,7 @@
                     <button type="submit" class="btn blue">Submit</button>
                     <button type="button" class="btn default">Cancel</button>
                 </div>
-                </form>
+                {!! Form::close() !!}
             </div>
         </div>
         <div class="text-center">
