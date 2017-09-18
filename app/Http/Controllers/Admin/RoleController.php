@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Role ;
+use App\Admin ;
 class RoleController extends Controller
 {
     /**
@@ -15,9 +16,10 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $roles = Role::all();
 
-        return view('admin.roles.index');
+        $roles = Role::paginate(10);
+
+        return view('admin.roles.index')->with('roles',$roles);
     }
 
     /**
@@ -28,7 +30,7 @@ class RoleController extends Controller
     public function create()
     {
         //
-        return view('admin.roles.create');
+
     }
 
     /**
@@ -40,6 +42,19 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,array(
+            'name' => 'required|string|max:255|unique:roles,name',
+            'display_name' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+        ));
+
+        $roles = new Role();
+        $roles->name = $request->name ;
+        $roles->display_name= $request->display_name;
+        $roles->description = $request->description;
+        $roles->save();
+        session()->flash('message','added successfully');
+        return redirect()->back();
     }
 
     /**
