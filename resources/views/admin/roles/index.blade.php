@@ -140,8 +140,12 @@
                 </form>
             </div>
         </div>
-        <div class="form-actions">
-
+        <div class="text-center">
+            {!! $roles->links() !!}
+        </div>
+        <div class="text-center">
+            <strong>Page : {{ $roles->currentPage() }} of {{ $roles->lastPage() }}</strong>
+        </div>
 @endsection
 
 
