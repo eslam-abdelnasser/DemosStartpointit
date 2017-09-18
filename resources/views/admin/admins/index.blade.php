@@ -120,6 +120,13 @@
             </div>
             <!-- END SAMPLE TABLE PORTLET-->
         </div>
+        <div class="text-center">
+            {!! $admins->links() !!}
+        </div>
+        <div class="text-center">
+            <strong>Page : {{ $admins->currentPage() }} of {{ $admins->lastPage() }}</strong>
+        </div>
+
     </div>
 @endsection
 
