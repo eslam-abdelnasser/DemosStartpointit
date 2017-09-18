@@ -36,6 +36,7 @@ Route::group([
     Route::resource('/admins','Admin\AdminController');
     Route::resource('/roles','Admin\RoleController');
     Route::resource('/languages','Admin\LanguagesController');
+    Route::get('/permissions', 'Admin\PermissionController@index')->name('permission.index');
 
 });
 

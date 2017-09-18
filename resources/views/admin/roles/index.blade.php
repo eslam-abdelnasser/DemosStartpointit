@@ -27,24 +27,15 @@
 
 
 @section('content')
-    <h4 class="page-title">Admins</h4>
+    <h4 class="page-title">Roles</h4>
     <div class="row">
         <div class="col-md-8">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-bell-o"></i>Admin Table </div>
-                    <div class="tools">
-                        <a href="{{route('admins.create')}}">
-                            <button type="button" class="btn btn-primary">Add Admin</button>
+                        <i class="fa fa-bell-o"></i>Roles Table </div>
 
-                        </a>
-                        <a href="javascript:;" class="collapse"> </a>
-                        <a href="#portlet-config" data-toggle="modal" class="config"> </a>
-                        <a href="javascript:;" class="reload"> </a>
-                        <a href="javascript:;" class="remove"> </a>
-                    </div>
                 </div>
                 <div class="portlet-body">
                     <div class="table-scrollable">
@@ -79,8 +70,9 @@
                                         {{$role->display_name}}
 
                                     </td>
-                                    <td>
-
+                                    <td class="text-center">
+                                        <a href="#" title="Add permissions" class=><i class="fa fa-plus"></i></a>
+                                        <a href="#" title="View permissions" class=><i class="fa fa-list"></i></a>
                                     </td>
 
                                     <td>
