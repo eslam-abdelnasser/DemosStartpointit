@@ -32,17 +32,19 @@
     {{Form::open(['route' => ['admin_role.store',$admin_id] , 'method' => 'post']) }}
     <div class="form-group">
         <div class="col-md-12">
-            <div class="mt-checkbox-inline">
-                @foreach($roles as $role)
+            @foreach($roles as $role)
+            <div class="mt-checkbox-inline col-md-3">
+
 
                     <label class="mt-checkbox">
                         <input type="checkbox" id={{$role->id}} name="roles[]" value="{{$role->id}}"> {{$role->display_name}}
                         <span></span>
                     </label>
-                @endforeach
+
 
             </div>
-            <div class="form-actions">
+            @endforeach
+            <div class="form-actions col-md-12">
                 <button type="submit" class="btn blue">Submit</button>
                 <button type="button" class="btn default">Cancel</button>
             </div>
