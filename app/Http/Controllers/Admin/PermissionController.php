@@ -38,6 +38,24 @@ class PermissionController extends Controller
         return view('admin.permissions.index')->with('permissions',$permissions);
     }
 
+    public function edit($id){
+        $permission = Permission::find($id);
+        return view('admin.permissions.edit')->with('permission',$permission);
+    }
+    public function update(Request $request, $id){
+        $this->validate($request,array(
+            'display_name' => 'string|max:255',
+            'description' => 'string|max:255',
+       ));
+
+        $permission = Permission::find($id);
+        $permission->display_name = $request->display_name;
+        $permission->description = $request->description;
+        $permission->save();
+
+        return redirect()->route('permission.index');
+    }
+
     protected function check_new_route($data){
 
         foreach ($data as $route){

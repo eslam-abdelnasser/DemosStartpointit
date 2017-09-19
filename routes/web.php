@@ -37,6 +37,9 @@ Route::group([
     Route::resource('/roles','Admin\RoleController');
     Route::resource('/languages','Admin\LanguagesController');
     Route::get('/permissions', 'Admin\PermissionController@index')->name('permission.index');
+    Route::get('/permissions/{permission_id}', 'Admin\PermissionController@edit')->name('permission.edit');
+    Route::post('/permissions/{permission_id}', 'Admin\PermissionController@update')->name('permission.update');
+
     Route::get('roles/{role_id}/addpermissions' , 'Admin\RoleController@displaypermission')->name('role.permission');
     Route::post('roles/{role_id}/permissions' , 'Admin\RoleController@addpermission')->name('role_permission.store');
     Route::get('roles/{role_id}/permissions' , 'Admin\RoleController@display_role_permission')->name('role.view.permission');

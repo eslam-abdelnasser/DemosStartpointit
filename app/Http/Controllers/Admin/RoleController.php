@@ -125,6 +125,7 @@ class RoleController extends Controller
 
         $role = Role::find($role_id);
         $role->permissions()->sync($request->permissions , false);
+        return redirect()->back();
     }
 
 

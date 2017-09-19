@@ -113,22 +113,15 @@
                                                         </span>
                                     <input type="text" name="job_title" id="hob_title" class="form-control input-circle-right" placeholder="Job Title" value="{{$admin->job_title}}"> </div>
                             </div>
-
-                            <label>Roles</label>
-                            <select class="form-control">
-                                <option></option>
-                            </select>
                         </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Submit</button>
+                        <button type="button" class="btn default">Cancel</button>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn blue">Submit</button>
-                    <button type="button" class="btn default">Cancel</button>
-                </div>
-                {!! Form::close() !!}
             </div>
-        </div>
-
-    </div>
+         </div>
     </div>
 @endsection
 

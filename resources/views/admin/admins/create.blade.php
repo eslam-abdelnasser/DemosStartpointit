@@ -114,17 +114,13 @@
                                     <input type="text" name="job_title" id="job_title" class="form-control input-circle-right" placeholder="Job Title"> </div>
                             </div>
 
-                                <label>Roles</label>
-                                <select class="form-control">
-                                    <option></option>
-                                </select>
+
                             </div>
-                        </div>
-                        <div class="form-actions">
-                            <button type="submit" class="btn blue">Submit</button>
-                            <button type="button" class="btn default">Cancel</button>
-                        </div>
-                 {!! Form::close() !!}
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Submit</button>
+                        <button type="button" class="btn default">Cancel</button>
+                    </div>
+                    {!! Form::close() !!}
                 </div>
             </div>
 

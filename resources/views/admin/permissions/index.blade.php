@@ -48,6 +48,7 @@
 
                                 <th>Display name</th>
                                 <th>Description</th>
+                                <th>Actions</th>
 
                             </tr>
                             </thead>
@@ -63,6 +64,10 @@
                                     </td>
                                     <td class="highlight">
                                         {{$permission->description}}
+                                    </td>
+                                    <td>
+                                        <a href="{{route ('permission.edit',$permission->id)}}" class="btn btn-outline btn-circle btn-sm purple">
+                                            <i class="fa fa-edit"></i> Edit </a>
                                     </td>
                                 </tr>
                             @endforeach

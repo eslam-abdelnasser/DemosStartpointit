@@ -90,7 +90,8 @@ class AdminController extends Controller
     {
         //
         $admin = Admin::find($id);
-        return view('admin.admins.edit')->with('admin',$admin);    }
+        return view('admin.admins.edit')->with('admin',$admin);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -154,6 +155,8 @@ class AdminController extends Controller
         ;
         $admin = Admin::find($admin_id);
         $admin->roles()->sync($request->roles , false);
+        return redirect()->back();
+
     }
 
 
