@@ -133,6 +133,15 @@
                     </li>
 
 
+                    <li class="nav-item start">
+                        <a href="{{route('permission.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Permissions</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+
 
                 </ul>
             </li>

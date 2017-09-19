@@ -70,6 +70,7 @@
                                         <i class="fa fa-mail"></i> Mail
                                     </th>
                                     <th>Social</th>
+                                    <th>Roles</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -102,11 +103,17 @@
                                         <a href="javascript:;" data-original-title="twitter" class="twitter"> </a>
 
                                     </td>
+
+                                    <td class="text-center">
+                                        <a href="{{route('admin.role',$admin->id)}}" title="Add new Role" class=><i class="fa fa-plus"></i></a>
+                                        <a href="{{route('admin.view.role',$admin->id)}}" title="View Roles" class=><i class="fa fa-list"></i></a>
+                                    </td>
+
                                     <td>
                                         <a href="{{route ('admins.edit',$admin->id)}}" class="btn btn-outline btn-circle btn-sm purple">
                                             <i class="fa fa-edit"></i> Edit </a>
 
-                                        {!! Form::open(['route' => ['admins.destroy', $admin->id ], 'method' => 'DELETE']) !!}
+                                        {!! Form::open(['route' => ['admins.destroy', $admin->id ], 'method' => 'DELETE', 'style'=>'display: inline;']) !!}
                                         <button class="btn btn-outline btn-circle dark btn-sm black">
                                             <i class="fa fa-trash-o"></i> Delete </button>
                                         {!! Form::close() !!}

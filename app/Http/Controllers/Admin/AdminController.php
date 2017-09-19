@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Admin ;
+use Psy\Test\Exception\RuntimeExceptionTest;
+
 class AdminController extends Controller
 {
     /**
@@ -19,6 +22,7 @@ class AdminController extends Controller
         return view('admin.admins.index')->with('admins',$admins);
 
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -132,5 +136,31 @@ class AdminController extends Controller
         return redirect()->route('admins.index');
 
 
+    }
+
+
+
+    //display all roles so the admin can chose one or more
+    public function displayroles($admin_id){
+        $roles = Role::all();
+        return view('admin.admins.addrole')->with('roles',$roles)->with('admin_id',$admin_id);
+
+    }
+
+
+    // assigne spacific roles for the admin
+    public function addrole($admin_id,Request $request)
+    {
+        ;
+        $admin = Admin::find($admin_id);
+        $admin->roles()->sync($request->roles , false);
+    }
+
+
+    //display all the admin roles with the option of delete
+    public function display_admin_role($admin_id)
+    {
+        $admin = Admin::find($admin_id);
+        return view('admin.admins.admin_roles')->with('admin',$admin);
     }
 }

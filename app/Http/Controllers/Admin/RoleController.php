@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Role ;
@@ -100,5 +101,38 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    //display all permissions in check boxs to assign
+    public function displaypermission($role_id){
+
+        $permissions = Permission::all();
+        return view('admin.roles.addpermission')->with('permissions',$permissions)->with('role_id',$role_id);
+    }
+
+
+    //display all the role permissions with the option of delete
+    public function display_role_permission($role_id){
+
+        $role = Role::find($role_id);
+        return view('admin.roles.role_permissions')->with('role',$role);
+    }
+
+
+    // assigne permissions to roles
+    public function addpermission($role_id,Request $request){
+
+        $role = Role::find($role_id);
+        $role->permissions()->sync($request->permissions , false);
+    }
+
+
+    //delete spacific role from the admin roles
+    public function delete_relation($admin_id,$role_id)
+    {
+        $admin = Admin::find($admin_id);
+        $admin->roles()->detach($role_id);
+        return redirect()->back();
     }
 }
