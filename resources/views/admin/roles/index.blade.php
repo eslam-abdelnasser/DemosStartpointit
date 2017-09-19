@@ -92,6 +92,12 @@
                 </div>
             </div>
             <!-- END SAMPLE TABLE PORTLET-->
+            <div class="text-center">
+                {!! $roles->links() !!}
+            </div>
+            <div class="text-center">
+                <strong>Page : {{ $roles->currentPage() }} of {{ $roles->lastPage() }}</strong>
+            </div>
         </div>
 
         <div class="col-md-4 ">
@@ -138,14 +144,10 @@
                     <button type="button" class="btn default">Cancel</button>
                 </div>
                 </form>
+
             </div>
         </div>
-        <div class="text-center">
-            {!! $roles->links() !!}
-        </div>
-        <div class="text-center">
-            <strong>Page : {{ $roles->currentPage() }} of {{ $roles->lastPage() }}</strong>
-        </div>
+
 @endsection
 
 
